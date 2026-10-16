@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f7f2" />
+    <meta name="description" content="A simple waitlist for keeping the next person in line clear." />
+    <title>QuickQueue — Keep the line moving</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="QuickQueue home">
+          <span class="brand-mark" aria-hidden="true">q</span>
+          <span>quickqueue</span>
+        </a>
+        <span class="local-badge"><span class="status-dot"></span> Saved on this device</span>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">A little more order</p>
+        <h1 id="page-title">Keep the line<br /><span>moving.</span></h1>
+        <p class="intro-copy">Add people as they arrive. QuickQueue keeps the next person clear, so you can focus on helping them.</p>
+      </section>
+
+      <section class="queue-card" aria-labelledby="queue-heading">
+        <div class="queue-header">
+          <div>
+            <p class="eyebrow">Your waitlist</p>
+            <h2 id="queue-heading">People waiting <span id="queue-count" class="count-pill">0</span></h2>
+          </div>
+          <button id="serve-next" class="serve-next" type="button" disabled>
+            Serve next <span aria-hidden="true">→</span>
+          </button>
+        </div>
+
+        <form id="entry-form" class="entry-form" novalidate>
+          <label for="guest-name">Name</label>
+          <div class="form-row">
+            <input id="guest-name" name="name" type="text" maxlength="50" autocomplete="off" placeholder="e.g. Ada" required />
+            <button class="add-button" type="submit"><span aria-hidden="true">＋</span> Add to queue</button>
+          </div>
+          <p id="form-error" class="form-error" role="alert" aria-live="polite"></p>
+        </form>
+
+        <ol id="queue-list" class="queue-list" aria-label="People in the waitlist" aria-live="polite"></ol>
+        <div id="empty-state" class="empty-state">
+          <span class="empty-icon" aria-hidden="true">↗</span>
+          <h3>Your queue is clear</h3>
+          <p>Add the first name when someone is ready to join the line.</p>
+        </div>
+        <p id="storage-note" class="storage-note">Your list stays in this browser. It isn’t shared with other devices.</p>
+      </section>
+
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+      <footer class="footer"><span>QuickQueue</span><span>One simple line, one person at a time.</span></footer>
+    </main>
+  </body>
+</html>
